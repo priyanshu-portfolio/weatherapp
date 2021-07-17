@@ -67,7 +67,54 @@ html {
       font-weight: 900;
   }
 
-  .custom-btn {
-      background: #66FCF0 i !important;
-      color: #0A0C1F;
+  .button {
+    font-weight: bold;
+    border: none;
+    color: #202738;
+    padding: 15px 68px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #66FCF0;
+  }
+
+  .formlabel {
+    font-family: Helvetica, sans-serif;
+    color: #66FCF0;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .cityname {
+    font-family: Helvetica, sans-serif;
+    color: #66FCF0;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .temp {
+    font-family: Helvetica, sans-serif;
+    color: #66FCF0;
+    font-weight: bold;
+    font-size: 60px;
+  }
+
+  .temp1 {
+    font-family: Helvetica, sans-serif;
+    color: #66FCF0;
+    font-size: 25px;
+  }
+
+  .dayname {
+    font-family: Helvetica, sans-serif;
+    color: #66FCF0;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .wi {
+    color: #66FCF0;
   }

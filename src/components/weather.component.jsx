@@ -3,10 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import './weather.css';
 
-const Weather=()=>{
+const Weather=(props)=>{
     return(
         <div>
         <div className="bg" />
@@ -22,21 +21,30 @@ const Weather=()=>{
                 <hr className="linehr" />
                 <Row>
                     <Col>
-                        <Form>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>City</Form.Label>
-                                <Form.Control type="text" placeholder="City" />
+                    <div>{props.error ? error() :null}</div>
+                        <Form onSubmit={props.loadweather}>
+                            <Form.Group controlId="formBasicEmail" >
+                                <Form.Label class="formlabel">City</Form.Label>
+                                <Form.Control type="text" name="city" autoComplete="off" placeholder="City" />
                                 
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Country</Form.Label>
-                                <Form.Control type="text" placeholder="Country" />
+                                <Form.Label class="formlabel">Country</Form.Label>
+                                <Form.Control type="text" name="country" autoComplete="off" placeholder="Country" />
                             </Form.Group>
                             
-                            <Button bsClass="custom-btn">
+                            <button className="button" type="submit">
                                 Get Weather
-                            </Button>
+                            </button>
                         </Form>
+                    </Col>
+                    
+                    <Col >
+                        <h2 className="cityname">{props.city}</h2>
+                        <i className={`wi ${props.weatherIcon} display-1`} />
+                        {props.temp_celsius ?(<h1 className="temp">{props.temp_celsius}&deg;</h1>) : null}
+                        {minmaxTemp(props.temp_min,props.temp_max)}                       
+                        <h2 className="dayname">{props.description}</h2>
                     </Col>
                 </Row>
             </Container>
@@ -45,5 +53,25 @@ const Weather=()=>{
         
 
     );
+};
+
+function error(){
+    return(
+        <div classname= "alert alert-danger mx-5" role="alert">
+            Please enter city and country!
+        </div>
+    )
+}
+
+function minmaxTemp(min,max){
+    if(min && max){
+    return (
+        <h3>
+            <span className="px-4 temp1">{min}&deg;</span>
+            <span className="px-4 temp1">{max}&deg;</span>
+        </h3>
+    );
+    }
+    
 }
 export default Weather;
